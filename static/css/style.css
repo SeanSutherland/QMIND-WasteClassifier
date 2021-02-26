@@ -1,0 +1,218 @@
+body {
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    font-weight: 100;
+}
+
+.logo {
+    float: left;
+    height: 80px;
+    padding-bottom: 15px;
+    padding-right: 0px;
+    padding-top: 20px;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.904);
+    padding-left: 20px;
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+}
+
+strong {
+    font-size: 30px;
+    color: rgb(24, 24, 24);
+    line-height: 32px;
+}
+
+#my_camera{
+    margin-top: 1%;
+    width: 70%;
+    height: 480px;
+    margin-left: 1%;
+}
+
+h1 {
+    padding-top: 40px;
+    padding-bottom: 38px;
+    margin-left: 65px;
+    padding-left:20px;
+    font-weight: 100;
+    text-transform: uppercase;
+    position: fixed;
+    margin-top: 0px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.904);
+
+
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 100;
+    margin-bottom: 0;
+    margin-left: 1%;
+}
+
+h3 {
+    color: rgba(0, 0, 0, 0.541);
+    background-color: #eee;
+    padding: 2%;
+}
+
+.collapsible:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: white;
+    float: right;
+    margin-left: 5px;
+}
+  
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.description {
+    line-height: 25px;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 5px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 20px;
+    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+    /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+#blue {
+    margin-top: 125px;
+}
+
+#blue:hover, input:active {
+    background-color: rgb(32, 107, 245);
+    color: white;
+}
+
+#red:hover {
+    background-color: rgb(255, 61, 61);
+    color: white;
+}
+
+#yellow:hover {
+    background-color: rgb(255, 228, 77);
+    color: rgb(43, 43, 43);
+}
+
+
+    /* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+input {
+    margin-left: 1%;
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 20px;
+    margin-top:10px;
+}
+
+img {
+    z-index: 0
+}
+
+.features{
+    color: black;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 30px;
+    background-color: white;
+    text-align: center;
+    }
+
+.features figure {
+    padding-bottom: 1%;
+    margin: 1%;
+    width: 20%;
+    min-height: 100%;
+}
+
+.features figure img {
+    max-height: 180px;
+    margin-bottom: 0;
+    z-index: 0;
+    width: 100%;
+
+    /* margin:1%; */
+    margin-bottom: 0%;
+    padding-bottom: 10px;
+}
+
+figcaption {
+    font-size: 20px;
+    position: center;
+    padding-top: 3%;
+    background-color:#eee;
+    margin-top: 5%;
+    padding-top: 5%;
+    padding: 10px;
+    text-align: center;
+}
+
+.features p {
+    margin-top: 8px;
+}
+
+.features figcaption:hover {
+    background-color:rgb(224, 223, 223);
+}
+
+.content img {
+    float: right;
+    width: 34%;
+
+}
+
+.description {
+    float: left;
+    width: 56%;
+    line-height: 25px;
+    padding: 2%;
+}
+
+.demo {
+    margin: 15px;
+}
+
+table {
+    width: 25%;
+    margin-left: 10px;
+    padding-bottom: 20px;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    text-align: left;
+  }

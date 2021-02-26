@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Waste Classification</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style.css') }}">
+    <script src="{{url_for('static', filename='js/javascript.js')}}"></script>
+    <script src="{{url_for('static', filename='js/webcamjs/webcam.min.js')}}"></script>
+
+</head>
+<body>
+    <img src="/static/img/qmind.png" class="logo" alt="qmind logo">
+    <h1>Android Waste Classification</h1>
+
+    <button type="button" class="collapsible" id="blue"><h2>Team Members</h2></button>
+    <div class="content">
+        Sean Sutherland | Richard Robinson | Tung Pham | Emily Mendelson<p>
+    </div>
+
+    <button type="button" class="collapsible" id="red"><h2>Project Description</h2></button>
+    <div class="content">
+        <img src="/static/img/recycling.png" class="description" alt="person holding recyling bin">
+    <div class="description">
+        <strong>While many people understand the importance of proper waste disposal, it's not always clear <em>how</em> to dispose of certain items. </strong>
+
+        <p>The WasteWizard Waste Classification Application will allow students to dispose of their waste items responsibly, by quickly classifying them into one of four categories: blue recycling, grey recycling, compost, or landfill. With the help Queen’s Physical Plant Services, the project aims to provide proper disposal instructions for a range of common items found across campus. 
+
+        <p>Our classification application uses EfficientNet, an advanced and lightweight computer vision model developed by Google in 2019. 
+            We have collected images from existing datasets and used common data augmentation techniques to create a robust dataset for retraining. 
+            Currently our model is performing with 98% accuracy on our validation set.
+
+         <p>Application development is ongoing to ensure an easy and secure user experience across campus. We are 
+            also considering secure deployment options of the tablet. This project offers promising results to provide 
+            Queen’s students with a simple, yet powerful tool to help dispose of their waste items responsibly.</p>
+    </div>
+    </div>
+
+
+    <button type="button" class="collapsible" id="yellow"><h2>Waste Categories</h2></button>
+    <div class="content">
+        <p>Following the garbage and recycling guidelines from the City of Kingston, this application aims to sort waste into 4 categories:</p>
+        <section class="features">
+        <figure>
+                <img src="/static/img/bluebin2.jpg" alt="blue recycling bin">
+                <figcaption class="overlay">Blue Bin Recycling</figcaption>
+                <p>Glass products, metal products, hard plastics, white styrofoam.</p>
+                <!-- <p>Examples: Metal cans, plastic bottles, glass jars, clean aluminum foil.</p> -->
+            </figure>
+            <figure>
+                <img src="/static/img/greybin2.jpg" alt="grey recycling bin">
+                <figcaption class="overlay">Grey Bin Recycling</figcaption>
+                <p>Clean paper products, cardboard, soft plastics.</p>
+                <!-- <p>Examples: Coffee cups, newspaper, cardboard boxes, plastic grocery bags.</p> -->
+            </figure>
+            <figure>
+                <img src="/static/img/greenbin2.jpg" alt="green organics bin">
+                <figcaption class="overlay">Organics</figcaption>
+                <p>Food waste, paper towels, tisues, paper food packaging.</p>
+                <!-- <p>Examples: Fruit and vegetable scraps, tea bags, bread, greasy pizza boxes.</p> -->
+            </figure>
+            <figure>
+                <img src="/static/img/garbage2.jpg" alt="garbage bag">
+                <figcaption class="overlay">Landfill</figcaption>
+                <p>Coloured styrofoam, zipper style plastic bags, crinkly plastic film.</p>
+                <!-- <p>Examples: Cereal/cracker bags, meat packaging, diapers, female hygiene products.</p> -->
+            </figure>
+        </section>
+    
+    </div>
+
+    <h2>Application Demo</h2>
+    <p class="demo">Take a picture of a piece of waste, and our model will classify it below:<p>
+
+
+	<div id="my_camera"></div>
+	<input type=button value="Take Picture" onClick="take_snapshot()">
+	
+    <div id="results"></div>
+
+    <table id="results">
+        <th colspan="2">Results</th>
+        <tr>
+            <td>Blue</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>Grey</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>Organics</td>
+            <td>%</td>
+        </tr>
+        <tr>
+            <td>Landfill</td>
+            <td>%</td>
+        </tr>
+    </table>
+
+    <footer>
+        <img src="/static/img/Screen Shot 2021-02-24 at 3.02.54 PM.png" class="header" alt="">
+    </footer>
+
+
+
+
+<!-- Webcam.min.js -->
+<!-- <script type="text/javascript" src="webcamjs/webcam.min.js"></script> -->
+
+<!-- Configure a few settings and attach camera -->
+<script language="JavaScript">
+Webcam.set({
+    width: 800,
+    height: 480,
+    image_format: 'jpeg',
+    jpeg_quality: 90
+});
+Webcam.attach( '#my_camera' );
+
+function take_snapshot() {
+    // take snapshot and get image data
+    Webcam.snap( function(data_uri) {
+        // display results in page
+        document.getElementById('results').innerHTML = 
+        '<img src="'+data_uri+'"/>';
+    } );
+}
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+bluecount = 0;
+redcount = 0;
+yellowcount = 0;
+document.getElementById('blue').onclick = changeBlue;  
+document.getElementById('red').onclick = changeRed;   
+document.getElementById('yellow').onclick = changeYellow;   
+
+function changeBlue() {
+    if (bluecount%2==0){
+        document.getElementById("blue").style.backgroundColor = "rgb(32, 107, 245)";
+        document.getElementById("blue").style.color = "white";
+    } else {
+        document.getElementById("blue").style.backgroundColor = "#eee";
+        document.getElementById("blue").style.color = "#444";
+    }
+    bluecount+=1;
+    return bluecount;
+}   
+
+function changeRed() {
+    if (redcount%2==0){
+        document.getElementById("red").style.backgroundColor = "rgb(255, 61, 61)";
+        document.getElementById("red").style.color = "white";
+    } else {
+        document.getElementById("red").style.backgroundColor = "#eee";
+        document.getElementById("red").style.color = "#444";
+    }
+    redcount+=1;
+    return redcount;
+} 
+
+function changeYellow() {
+    if (yellowcount%2==0){
+        document.getElementById("yellow").style.backgroundColor = "rgb(255, 228, 77)";
+    } else {
+        document.getElementById("yellow").style.backgroundColor = "#eee";
+        document.getElementById("yellow").style.color = "#444";
+    }
+    yellowcount+=1;
+    return yellowcount;
+}   
+	</script>
+	
+</body>
+</html>

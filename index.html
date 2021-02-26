@@ -123,7 +123,14 @@ function take_snapshot() {
         // display results in page
         document.getElementById('results').innerHTML = 
         '<img src="'+data_uri+'"/>';
+        var xhr = new XMLHttpRequest();
+	xhr.open("POST", "http://35.203.87.21:5000/classify", true);
+	xhr.setRequestHeader('Content-Type', 'application/json');
+	xhr.send(JSON.stringify({
+	    file: data_uri
+	}));
     } );
+	
 }
 
 var coll = document.getElementsByClassName("collapsible");

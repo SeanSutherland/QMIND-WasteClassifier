@@ -81,19 +81,19 @@
         <th colspan="2">Results</th>
         <tr>
             <td>Blue</td>
-            <td>%</td>
+            <td id="blue-score">%</td>
         </tr>
         <tr>
             <td>Grey</td>
-            <td>%</td>
+            <td id="grey-score">%</td>
         </tr>
         <tr>
             <td>Organics</td>
-            <td>%</td>
+            <td id="organics-score">%</td>
         </tr>
         <tr>
             <td>Landfill</td>
-            <td>%</td>
+            <td id="landfill-score">%</td>
         </tr>
     </table>
 
@@ -123,12 +123,30 @@ function take_snapshot() {
         // display results in page
         document.getElementById('results').innerHTML = 
         '<img src="'+data_uri+'"/>';
-        var xhr = new XMLHttpRequest();
+	    
+	console.log("Arrived");
+        let req = new XMLHttpRequest();
+        let formData = new FormData();
+        req.onreadystatechange = function() {
+		if (this.readyState ==4 && this.status == 200) {
+			let myarr = req.responseText.split(",");
+			document.getElementById("blue-score").textContent = myarr[0] + "%";
+			document.getElementById("grey-score").textContent = myarr[3] + "%";
+			document.getElementById("organics-score").textContent = myarr[2] + "%";
+			document.getElementById("landfill-score").textContent = myarr[1] + "%";                        
+			console.log(req.responseText);
+		}
+	};
+	formData.append("files", data_uri);                                
+	req.open("POST", 'http://35.203.8.173:5000/classify');
+	req.send(formData);
+	    
+        /*var xhr = new XMLHttpRequest();
 	xhr.open("POST", "http://35.203.87.21:5000/classify", true);
 	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send(JSON.stringify({
 	    file: data_uri
-	}));
+	}));*/
     } );
 	
 }

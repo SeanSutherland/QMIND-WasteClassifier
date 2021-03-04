@@ -12,14 +12,53 @@
     <img src="static/img/qmind.png" class="logo" alt="qmind logo">
     <h1>Android Waste Classification</h1>
 
-    <button type="button" class="collapsible" id="blue"><h2>Team Members</h2></button>
+    <button type="button" class="collapsible top" id="blue"><h2>Team Members</h2></button>
     <div class="content">
-        Sean Sutherland | Richard Robinson | Tung Pham | Emily Mendelson<p>
+            <div class="headshot">
+                <img src="/static/img/Sean-Sutherland.jpg" alt="" style="width:100%">
+                <a href="https://www.linkedin.com/in/sean-r-sutherland/" target="_blank">
+                    <figcaption>
+                        <strong style="font-size: 130%;"> Sean Sutherland </strong><br>
+                        BASc, Mathematics and Engineering<br>
+                        <p>LinkedIn</p>
+                    </figcaption>
+                </a>
+            </div>
+            <div class="headshot">
+                <img src="/static/img/richard cropped1.png" alt="" style="width:100%">
+                <a href="https://www.linkedin.com/in/richard-robinson-2b293b17a/" target="_blank">
+                    <figcaption>
+                        <strong style="font-size: 130%;"> Richard Robinson </strong><br>
+                        BASc, Mechanical Engineering<br>
+                        <p>LinkedIn</p>
+                    </figcaption>
+                </a>
+            </div>
+            <div class="headshot">
+                <img src="/static/img/Tung-Pham.png" alt="" style="width:100%">
+                <a href="https://www.linkedin.com/in/tung-pham-1b01571b7/" target="_blank">
+                    <figcaption>
+                        <strong style="font-size: 130%;"> Tung Pham </strong><br>
+                        BComp, Software Design<br><br>
+                        <p>LinkedIn</p>
+                    </figcaption>
+                </a>
+            </div>
+            <div class="headshot">
+                <img src="/static/img/Emily-Mendelson.jpg" alt="" style="width:100%">
+                <a href="https://www.linkedin.com/in/mendelsonemily/" target="_blank">
+                    <figcaption>
+                        <strong style="font-size: 130%;"> Emily Mendelson</strong><br>
+                        BSc, Statistic and Biology<br><br>
+                        <p>LinkedIn</p>
+                    </figcaption>
+                </a>
+            </div>
     </div>
 
     <button type="button" class="collapsible" id="red"><h2>Project Description</h2></button>
     <div class="content">
-        <img src="static/img/recycling.png" class="description" alt="person holding recyling bin">
+        <img src="/static/img/recycling.png" class="description" alt="person holding recyling bin">
     <div class="description">
         <strong>While many people understand the importance of proper waste disposal, it's not always clear <em>how</em> to dispose of certain items. </strong>
 
@@ -36,9 +75,36 @@
     </div>
 
 
-    <button type="button" class="collapsible" id="yellow"><h2>Waste Categories</h2></button>
+    <button type="button" class="collapsible" id="yellow"><h2>Computer Vision Model</h2></button>
     <div class="content">
-        <p>Following the garbage and recycling guidelines from the City of Kingston, this application aims to sort waste into 4 categories:</p>
+        <img src="/static/img/EfficientNet Graph.png" class="description" alt="Graph showing accuracy versus number of parameters of computer vision models">
+    <div class="description">
+        <strong>EfficientNet</strong>
+
+        <p>EfficientNet is a computer vision model that uses a compound coefficient as a method of rescaling neural 
+            networks. Due to the advanced architecture of the model, it is able to perform equally or better than 
+            significantly larger computer vision models. Unlike more conventional approaches to model scaling where 
+            dimensions are arbitrarily scaled, EfficientNet scales each dimension with a fixed set of scaling coefficients. 
+            This results in a higher level of accuracy and efficiency.</p>
+
+        <p>Another benefit to using EfficientNet is that there are several different versions to choose from, from B0 to B8. 
+            Each of these versions have differing levels of accuracy and number of parameters, allowing for easy adaptation 
+            of our model depending on the speed and storage capacity of the tablet the model is running on. 
+            Additionally, there are also EfficientNet Lite models, which are specifically designed to run on mobile devices, 
+            and these options will provide even further flexibility for our model. </p>
+
+         <p>Using the EfficientNet model, we have been able to fine-tune and add layers to customize the model for our 
+            specific dataset. So far on our validation set, we have been able to reach 98% accuracy using the B0 model, 
+            and we hope that by increasing the size of our dataset, we will be able to achieve similar levels of accuracy 
+            on out testing set.</p>
+
+    </div>
+    </div>
+
+
+    <button type="button" class="collapsible" id="blue"><h2>Our Data</h2></button>
+    <div class="content">
+        <p><strong>Our data is split into 4 categories, following garbage and recycling guidelines from the City of Kingston:</strong></p>
         <section class="features">
         <figure>
                 <img src="static/img/bluebin2.jpg" alt="blue recycling bin">
@@ -65,15 +131,52 @@
                 <!-- <p>Examples: Cereal/cracker bags, meat packaging, diapers, female hygiene products.</p> -->
             </figure>
         </section>
-    
+        <div class="description">
+            <p>We are currently increasing the size of our dataset to increase the accuracy of our model. Additionally,
+                we are improving our data augmentation and pre-processing techniques.
+            </p>
+        </div>
+    </div>
+
+
+    <button type="button" class="collapsible" id="red"><h2>Deployment of Our Model</h2></button>
+    <div class="content">
+
+        <p><strong>Our model will be deployed through an Android application that will be used on tablets across 
+            Queen's Campus</strong></p>
+
+        <div class="test">
+            <img src="/static/img/test1.png" alt="" style="width:100%">
+        </div>
+        <div class="test">
+            <img src="/static/img/test2.png" alt="" style="width:100%">
+        </div>
+        <div class="test">
+            <img src="/static/img/test3.png" alt="" style="width:100%">
+        </div>
+
+        <div class="description">
+            <p>
+                After taking an image, 10 augmented versions are created and then classified, which are then averaged.
+                Currently, actual classification accuracy is lower than the validation set accuracy would predict.
+                In order to increase classification accuracy, we are increasing the size of our dataset, completing
+                systematic testing of our model to identify weaknesses, improving pre-processing.
+            </p>
+            <p>
+                We are also in the final stages of android application development, which will allow our model to run locally
+                on an android tablet. We have also compiled several possible methods for secure tablet instalation across campus, including
+                wall mounting options, and options allowing for the tablet to be mounted directly onto the surface of the recycling 
+                station cabinet.
+            </p>
+        </div>
     </div>
 
     <h2>Application Demo</h2>
-    <p class="demo">Take a picture of a piece of waste, and our model will classify it below:<p>
+    <p class="demo">Upload an image of a item of waste and our model will classify it below:<p>
 
 
-	<div id="my_camera"></div>
-	<input type=button value="Take Picture" onClick="take_snapshot()">
+    <input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" value="Upload Image">
+        <p><img id="output" width="200" /></p>
 	
     <div id="results"></div>
 
@@ -102,54 +205,44 @@
     </footer>
 
 
-
-
-<!-- Webcam.min.js -->
-<!-- <script type="text/javascript" src="webcamjs/webcam.min.js"></script> -->
-
-<!-- Configure a few settings and attach camera -->
 <script language="JavaScript">
-Webcam.set({
-    width: 800,
-    height: 480,
-    image_format: 'jpeg',
-    jpeg_quality: 90
-});
-Webcam.attach( '#my_camera' );
 
-function take_snapshot() {
-    // take snapshot and get image data
-    Webcam.snap( function(data_uri) {
-        // display results in page
-        document.getElementById('results').innerHTML = 
-        '<img src="'+data_uri+'"/>';
-	    
+// Upload file
+
+var loadFile = function(event) {
+	var image = document.getElementById('output');
+	image.src = URL.createObjectURL(event.target.files[0]);
+	/*var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (this.readyState ==4 && this.status == 200) {
+			console.log(xhr.responseText);
+		}
+	};
+	let formData = new FormData();
+    formData.append("photo", event.target.files[0]);
+	xhr.open("POST", "classify", true);
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.send(event.target.files[0]);*/
 	console.log("Arrived");
+	let photo = event.target.files[0];  // file from input
         let req = new XMLHttpRequest();
         let formData = new FormData();
         req.onreadystatechange = function() {
-		if (this.readyState ==4 && this.status == 200) {
-			let myarr = req.responseText.split(",");
-			document.getElementById("blue-score").textContent = myarr[0] + "%";
-			document.getElementById("grey-score").textContent = myarr[3] + "%";
-			document.getElementById("organics-score").textContent = myarr[2] + "%";
-			document.getElementById("landfill-score").textContent = myarr[1] + "%";                        
-			console.log(req.responseText);
-		}
-	};
-	formData.append("files", data_uri);                                
-	req.open("POST", 'http://35.203.8.173:5000/classify');
-	req.send(formData);
-	    
-        /*var xhr = new XMLHttpRequest();
-	xhr.open("POST", "http://35.203.87.21:5000/classify", true);
-	xhr.setRequestHeader('Content-Type', 'application/json');
-	xhr.send(JSON.stringify({
-	    file: data_uri
-	}));*/
-    } );
-	
-}
+                if (this.readyState ==4 && this.status == 200) {
+let myarr = req.responseText.split(",");
+document.getElementById("blue-score").textContent = myarr[0] + "%";
+document.getElementById("grey-score").textContent = myarr[3] + "%";
+document.getElementById("organics-score").textContent = myarr[2] + "%";
+document.getElementById("landfill-score").textContent = myarr[1] + "%";                        
+console.log(req.responseText);
+                }
+        };
+        formData.append("files", photo);                                
+        req.open("POST", '/classify');
+        req.send(formData);
+};
+
+// Collapsible Tabs
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -164,47 +257,47 @@ for (i = 0; i < coll.length; i++) {
       content.style.display = "block";
     }
   });
-}
-bluecount = 0;
-redcount = 0;
-yellowcount = 0;
-document.getElementById('blue').onclick = changeBlue;  
-document.getElementById('red').onclick = changeRed;   
-document.getElementById('yellow').onclick = changeYellow;   
+// }
+// bluecount = 0;
+// redcount = 0;
+// yellowcount = 0;
+// document.getElementById('blue').onclick = changeBlue;  
+// document.getElementById('red').onclick = changeRed;   
+// document.getElementById('yellow').onclick = changeYellow;   
 
-function changeBlue() {
-    if (bluecount%2==0){
-        document.getElementById("blue").style.backgroundColor = "rgb(32, 107, 245)";
-        document.getElementById("blue").style.color = "white";
-    } else {
-        document.getElementById("blue").style.backgroundColor = "#eee";
-        document.getElementById("blue").style.color = "#444";
-    }
-    bluecount+=1;
-    return bluecount;
-}   
+// function changeBlue() {
+//     if (bluecount%2==0){
+//         document.getElementById("blue").style.backgroundColor = "rgb(32, 107, 245)";
+//         document.getElementById("blue").style.color = "white";
+//     } else {
+//         document.getElementById("blue").style.backgroundColor = "#eee";
+//         document.getElementById("blue").style.color = "#444";
+//     }
+//     bluecount+=1;
+//     return bluecount;
+// }   
 
-function changeRed() {
-    if (redcount%2==0){
-        document.getElementById("red").style.backgroundColor = "rgb(255, 61, 61)";
-        document.getElementById("red").style.color = "white";
-    } else {
-        document.getElementById("red").style.backgroundColor = "#eee";
-        document.getElementById("red").style.color = "#444";
-    }
-    redcount+=1;
-    return redcount;
-} 
+// function changeRed() {
+//     if (redcount%2==0){
+//         document.getElementById("red").style.backgroundColor = "rgb(255, 61, 61)";
+//         document.getElementById("red").style.color = "white";
+//     } else {
+//         document.getElementById("red").style.backgroundColor = "#eee";
+//         document.getElementById("red").style.color = "#444";
+//     }
+//     redcount+=1;
+//     return redcount;
+// } 
 
-function changeYellow() {
-    if (yellowcount%2==0){
-        document.getElementById("yellow").style.backgroundColor = "rgb(255, 228, 77)";
-    } else {
-        document.getElementById("yellow").style.backgroundColor = "#eee";
-        document.getElementById("yellow").style.color = "#444";
-    }
-    yellowcount+=1;
-    return yellowcount;
+// function changeYellow() {
+//     if (yellowcount%2==0){
+//         document.getElementById("yellow").style.backgroundColor = "rgb(255, 228, 77)";
+//     } else {
+//         document.getElementById("yellow").style.backgroundColor = "#eee";
+//         document.getElementById("yellow").style.color = "#444";
+//     }
+//     yellowcount+=1;
+//     return yellowcount;
 }   
 	</script>
 	

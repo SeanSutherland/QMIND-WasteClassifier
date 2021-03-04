@@ -1,5 +1,5 @@
 body {
-    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-family: sans-serif;
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -50,11 +50,14 @@ h1 {
 
 }
 
-h2 {
+h2, h4 {
     font-size: 24px;
     font-weight: 100;
-    margin-bottom: 0;
+    margin-bottom: 0%;
     margin-left: 1%;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-top: 20px;
 }
 
 h3 {
@@ -62,6 +65,26 @@ h3 {
     background-color: #eee;
     padding: 2%;
 }
+
+.collapsible.small {
+    background-color: rgb(107, 107, 107);
+    color: white;
+    font-weight: 100;
+    font-family: sans-serif;
+    padding-top: 0px;
+}
+
+.collapsible.small:hover {
+    background-color: rgb(26, 26, 26);
+    color: rgb(51, 122, 255);
+}
+
+/* h4 {
+    margin-left: 1%;
+    margin-bottom: 0px;
+    font-weight: 500;
+    font-size: 24px;
+} */
 
 .collapsible:after {
     content: '\02795'; /* Unicode character for "plus" sign (+) */
@@ -84,19 +107,29 @@ h3 {
     background-color: #eee;
     color: #444;
     cursor: pointer;
-    padding: 5px;
+    padding: 0px;
     width: 100%;
     border: none;
     text-align: left;
     outline: none;
     font-size: 15px;
-    margin-bottom: 20px;
-    font-family: Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-bottom: 5px;
+    font-family: Haettenschweiler, 'Calibri', sans-serif;
 }
 
     /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-#blue {
+.collapsible.active {
+    background-color: rgb(51, 51, 51);
+    color: white;
+}
+
+.collapsible.top {
     margin-top: 125px;
+}
+
+
+img.description {
+    margin-top: 20px;
 }
 
 #blue:hover, input:active {
@@ -152,10 +185,12 @@ img {
     }
 
 .features figure {
-    padding-bottom: 1%;
+    padding-bottom: 0%;
+    margin-bottom: 0%;
     margin: 1%;
     width: 20%;
     min-height: 100%;
+
 }
 
 .features figure img {
@@ -194,6 +229,12 @@ figcaption {
 
 }
 
+figure {
+        float: left;
+        width: 25%;
+        padding: 5px;
+}
+
 .description {
     float: left;
     width: 56%;
@@ -216,3 +257,40 @@ th, td {
     padding: 15px;
     text-align: left;
   }
+
+.headshot {
+    float: left;
+    width: 15%;
+    padding: 4%;
+    padding-top: 10px;
+    padding-bottom: 30px;
+
+}
+
+.headshot figcaption {
+    margin-top: 100%;
+    font-size: 16px;
+}
+
+.test {
+    float: left;
+    width: 20%;
+    padding: 5%;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    margin-top: 1%;
+}
+
+a {
+    text-decoration: none;
+}
+
+a figcaption, a p{
+    color: black;
+    text-decoration: none;
+    text-align: left;
+}
+
+.headshot strong {
+    font-weight: 100;
+}
